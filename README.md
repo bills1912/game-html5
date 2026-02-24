@@ -6,15 +6,16 @@ Two production-quality games built with **pure Vanilla JavaScript + HTML5 Canvas
 
 ## Games
 
-### 🛡️ NEXUS DEFENSE — Tower Defense
-Real-time tower defense game featuring:
-- **4 tower types**: Basic, Sniper, Splash (AoE), Freeze (slow)
-- **3 enemy types**: Drone, Tank (armored), Speeder
-- Infinite wave system with scaling difficulty
-- Enemy pathfinding along a fixed path
-- Particle effects on enemy death / base breach
-- Range preview, sell system, gold economy
-- Real-time HUD and combat log
+### 🚀 VOID DRIFTER — Asteroid Blaster
+Game survival shooter ruang angkasa yang intens dengan fitur:
+- **Sistem Pergerakan Fisika**: Kontrol presisi menggunakan WASD/Panah dengan efek *thrust* dan *drag* yang halus.
+- **Sistem Skor Real-time**: Perhitungan skor dinamis berdasarkan ukuran asteroid yang hancur.
+- **Skill & Ultimate**: 
+  - **Warp Drive (E)**: Teleportasi instan untuk menghindari kepungan asteroid.
+  - **Mega Nova (Q)**: Ultimate skill untuk membersihkan seluruh layar dari ancaman.
+  - **Energy Shield (Shift)**: Perlindungan tambahan menggunakan cadangan energi.
+- **Infinite Wave System**: Kesulitan yang meningkat secara bertahap di setiap gelombang.
+- **Efek Visual Modern**: Partikel ledakan, *screen shake*, dan pencahayaan dinamis menggunakan GPU-accelerated shadows.
 
 ### 🟦 TETRIX — Tetris Clone
 Feature-complete Tetris implementation:
