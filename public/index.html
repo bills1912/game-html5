@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GAME ARCADE — Portfolio</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #05050a;
+    --pink: #ff2d78;
+    --cyan: #00f5d4;
+    --purple: #b44fff;
+    --yellow: #ffe44d;
+    --dim: #3a3050;
+    --text: #d0c8e0;
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Space Mono', monospace;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+  }
+  body::before {
+    content:'';
+    position:fixed;
+    inset:0;
+    background:
+      radial-gradient(ellipse at 0% 0%, rgba(180,79,255,0.1) 0%, transparent 50%),
+      radial-gradient(ellipse at 100% 100%, rgba(255,45,120,0.1) 0%, transparent 50%),
+      radial-gradient(ellipse at 50% 50%, rgba(0,245,212,0.04) 0%, transparent 50%);
+    pointer-events:none;
+  }
+  .noise {
+    position:fixed;
+    inset:0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+    opacity:0.15;
+    pointer-events:none;
+  }
+  .content {
+    text-align:center;
+    position:relative;
+    z-index:10;
+    padding: 40px 20px;
+    max-width: 800px;
+    width: 100%;
+  }
+  .tag {
+    font-size:9px;
+    letter-spacing:5px;
+    color:var(--dim);
+    margin-bottom:16px;
+    text-transform:uppercase;
+  }
+  h1 {
+    font-family:'Bebas Neue',sans-serif;
+    font-size:clamp(60px, 12vw, 100px);
+    letter-spacing:8px;
+    line-height:0.9;
+    margin-bottom:8px;
+  }
+  h1 .g { color:var(--pink); text-shadow:0 0 40px rgba(255,45,120,0.5); }
+  h1 .a { color:var(--yellow); text-shadow:0 0 40px rgba(255,228,77,0.5); }
+  h1 .m { color:var(--cyan); text-shadow:0 0 40px rgba(0,245,212,0.5); }
+  h1 .e { color:var(--purple); text-shadow:0 0 40px rgba(180,79,255,0.5); }
+  .sub {
+    font-size:11px;
+    letter-spacing:3px;
+    color:var(--dim);
+    margin-bottom:56px;
+  }
+  .cards {
+    display:flex;
+    gap:24px;
+    justify-content:center;
+    flex-wrap:wrap;
+  }
+  .card {
+    background:#0a080f;
+    border:1px solid var(--dim);
+    border-radius:8px;
+    padding:0;
+    width:320px;
+    text-decoration:none;
+    color:var(--text);
+    transition:all 0.25s;
+    overflow:hidden;
+    position:relative;
+    display:block;
+    cursor:pointer;
+  }
+  .card:hover {
+    transform:translateY(-6px);
+    border-color:var(--pink);
+    box-shadow:0 20px 60px rgba(255,45,120,0.15), 0 0 0 1px rgba(255,45,120,0.2);
+  }
+  .card:hover .card-accent { width:100%; }
+  .card-accent {
+    height:2px;
+    width:0%;
+    transition:width 0.4s;
+  }
+  .card-thumb {
+    width:100%;
+    height:180px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-family:'Bebas Neue',sans-serif;
+    font-size:72px;
+    letter-spacing:4px;
+    position:relative;
+    overflow:hidden;
+  }
+  .card-thumb::after {
+    content:'';
+    position:absolute;
+    inset:0;
+    background:linear-gradient(transparent 50%, #0a080f 100%);
+  }
+  .card-body { padding:20px 24px 24px; }
+  .card-name {
+    font-family:'Bebas Neue',sans-serif;
+    font-size:24px;
+    letter-spacing:3px;
+    margin-bottom:6px;
+  }
+  .card-desc {
+    font-size:10px;
+    color:var(--dim);
+    line-height:1.8;
+    margin-bottom:16px;
+  }
+  .tags { display:flex; gap:6px; flex-wrap:wrap; }
+  .chip {
+    font-size:8px;
+    letter-spacing:2px;
+    padding:3px 8px;
+    border-radius:2px;
+    border:1px solid;
+  }
+  footer {
+    margin-top:48px;
+    font-size:9px;
+    letter-spacing:2px;
+    color:var(--dim);
+    position:relative;
+    z-index:10;
+  }
+</style>
+</head>
+<body>
+<div class="noise"></div>
+<div class="content">
+  <div class="tag">// Portfolio Game Collection</div>
+  <h1>
+    <span class="g">G</span><span class="a">A</span><span class="m">M</span><span class="e">E</span><br>
+    ARCADE
+  </h1>
+  <div class="sub">TWO GAMES — BUILT WITH VANILLA JS + HTML5 CANVAS</div>
+
+  <div class="cards">
+    <a class="card" href="/game1">
+      <div class="card-accent" style="background:linear-gradient(90deg,#00f5d4,#7b2fff)"></div>
+      <div class="card-thumb" style="background:linear-gradient(135deg,#050810 0%,#0d1525 100%)">
+        <span style="color:#00f0ff;text-shadow:0 0 40px rgba(0,240,255,0.5);">VD</span>
+      </div>
+      <div class="card-body">
+        <div class="card-name" style="color:#00f5d4;">VOID DRIFTER</div>
+        <div class="card-desc">
+          Real-time asteroid survival shooter game. Mouse-aimed shoot-em-up. Destroy asteroids before they destroy you. Collect powerups, use shields, bombs, and warp to survive endless waves.
+        </div>
+        <div class="tags">
+          <div class="chip" style="border-color:#00f5d4;color:#00f5d4;">SHOOTER</div>
+          <div class="chip" style="border-color:#7b2fff;color:#7b2fff;">ACTION</div>
+          <div class="chip" style="border-color:var(--dim);color:var(--dim);">CANVAS 2D</div>
+        </div>
+      </div>
+    </a>
+
+    <a class="card" href="/game2">
+      <div class="card-accent" style="background:linear-gradient(90deg,#ff2d78,#ffe44d)"></div>
+      <div class="card-thumb" style="background:linear-gradient(135deg,#080408 0%,#1a0820 100%)">
+        <span style="color:#ff2d78;text-shadow:0 0 40px rgba(255,45,120,0.5);">T</span>
+      </div>
+      <div class="card-body">
+        <div class="card-name" style="color:#ff2d78;">TETRIX</div>
+        <div class="card-desc">
+          Feature-complete Tetris implementation. SRS rotation, DAS/ARR controls, hold piece, ghost piece, T-spin detection, combo system, and increasing level speed.
+        </div>
+        <div class="tags">
+          <div class="chip" style="border-color:#ff2d78;color:#ff2d78;">PUZZLE</div>
+          <div class="chip" style="border-color:#ffe44d;color:#ffe44d;">CLASSIC</div>
+          <div class="chip" style="border-color:var(--dim);color:var(--dim);">CANVAS 2D</div>
+        </div>
+      </div>
+    </a>
+  </div>
+</div>
+
+<footer>BUILT WITH HTML5 CANVAS + VANILLA JAVASCRIPT — NO FRAMEWORKS</footer>
+</body>
+</html>

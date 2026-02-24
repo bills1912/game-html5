@@ -1,0 +1,16 @@
+{
+  "name": "game-arcade",
+  "version": "1.0.0",
+  "description": "HTML5 Game Portfolio - Tower Defense & Tetrix",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
